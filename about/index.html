@@ -329,14 +329,14 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">3</a></span>
+    <span class="count"><a href="/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">12</a></span>
+    <span class="count"><a href="/tags">14</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -359,14 +359,14 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">3</a></span>
+    <span class="count"><a href="/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">12</a></span>
+    <span class="count"><a href="/tags">14</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -536,7 +536,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"遥感图像解译","value":1},{"name":"Hexo博客编写","value":1},{"name":"生成模型","value":2}],
+                data: [{"name":"Hexo博客编写","value":1},{"name":"生成模型","value":2}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -560,7 +560,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["生成模型","论文阅读","MetaEarth","遥感图像","markdown","hexo","写作","DDPM","扩散模型","隐变量"]
+                data: ["生成模型","隐变量模型","论文阅读","扩散模型","markdown","hexo","写作","参数估计","最大化似然","KL散度"]
             }
         ],
         yAxis: [
@@ -573,7 +573,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [3,2,1,1,1,1,1,1,1,1],
+                data: [2,2,1,1,1,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -635,7 +635,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">16.2k</span>
+                        class="white-color">43.1k</span>
             
             
             
@@ -909,7 +909,7 @@ $(function () {
         <script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
-                preloadRatio: 1,
+                preloadRatio: 3,
                 processImages: null,
             };
         </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>

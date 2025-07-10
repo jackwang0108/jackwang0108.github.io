@@ -413,8 +413,12 @@ mjx-container[display="true"] + br {
                                 <span class="chip bg-color">生成模型</span>
                             </a>
                         
-                            <a href="/tags/%E9%9A%90%E5%8F%98%E9%87%8F/">
-                                <span class="chip bg-color">隐变量</span>
+                            <a href="/tags/%E9%9A%90%E5%8F%98%E9%87%8F%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">隐变量模型</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/">
+                                <span class="chip bg-color">参数估计</span>
                             </a>
                         
                             <a href="/tags/%E6%9C%80%E5%A4%A7%E5%8C%96%E4%BC%BC%E7%84%B6/">
@@ -453,7 +457,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-07-02
+                    2025-07-08
                 </div>
                 
 
@@ -786,7 +790,7 @@ Autoencoders</a>：</p>
 </ul>
 <p>为了方便介绍，我们后面不再针对<code>显式生成模型</code>和<code>隐式生成模型</code>具体区分到底是<code>模型表达的分布</code>还是<code>模型输出的分布</code>，我们统一称为<code>模型的分布</code>，记为：<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.21ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2302.6 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mi" transform="translate(536,-150) scale(0.707)"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g></g><g data-mml-node="mo" transform="translate(917.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(1306.6,0)"><g data-mml-node="mi"><path data-c="1D431" d="M227 0Q212 3 121 3Q40 3 28 0H21V62H117L245 213L109 382H26V444H34Q49 441 143 441Q247 441 265 444H274V382H246L281 339Q315 297 316 297Q320 297 354 341L389 382H352V444H360Q375 441 466 441Q547 441 559 444H566V382H471L355 246L504 63L545 62H586V0H578Q563 3 469 3Q365 3 347 0H338V62H366Q366 63 326 112T285 163L198 63L217 62H235V0H227Z"></path></g></g><g data-mml-node="mo" transform="translate(1913.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></span>，其中<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.023ex;" xmlns="http://www.w3.org/2000/svg" width="1.061ex" height="1.618ex" role="img" focusable="false" viewBox="0 -705 469 715"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g></g></g></svg></mjx-container></span>是模型的参数。</p>
 <h3 id="求分布的参数"><span id="sec:optim">2.2 求分布的参数</span></h3>
-<p>求分布的参数实际上就是数理同理这门学科中的一个基础任务了。具体来说，有两种方法：</p>
+<p>求分布的参数实际上就是数理统计这门学科中的一个基础任务了。具体来说，有两种方法：</p>
 <ul>
 <li><code>最大化似然（Maximum Likelihood Estimation，MLE）</code></li>
 <li><code>最小化距离（Minimum Distance Estimation，MDE）</code></li>
@@ -1070,8 +1074,12 @@ Autoencoders</a>：</p>
                                     <span class="chip bg-color">生成模型</span>
                                 </a>
                             
-                                <a href="/tags/%E9%9A%90%E5%8F%98%E9%87%8F/">
-                                    <span class="chip bg-color">隐变量</span>
+                                <a href="/tags/%E9%9A%90%E5%8F%98%E9%87%8F%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">隐变量模型</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/">
+                                    <span class="chip bg-color">参数估计</span>
                                 </a>
                             
                                 <a href="/tags/%E6%9C%80%E5%A4%A7%E5%8C%96%E4%BC%BC%E7%84%B6/">
@@ -1165,7 +1173,7 @@ Autoencoders</a>：</p>
                 <a href="/2025/07/01/DDPM%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
-                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://jack-1307599355.cos.ap-shanghai.myqcloud.com/image-20250630151144151.png" class="responsive-img" alt="DDPM论文阅读笔记">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://jack-1307599355.cos.ap-shanghai.myqcloud.com/image-20250708135812376.png" class="responsive-img" alt="DDPM论文阅读笔记">
                         
                         <span class="card-title">DDPM论文阅读笔记</span>
                     </div>
@@ -1173,7 +1181,7 @@ Autoencoders</a>：</p>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            DDPM的奠基之作，是扩散模型领域最经典的论文之一，给出了一个严谨的数学推导、可复现的代码
+                            DDPM是扩散模型的奠基之作，是扩散模型领域最经典的论文之一，给出了一个严谨的数学推导、可复现的代码
                         
                     </div>
                     <div class="publish-info">
@@ -1203,12 +1211,28 @@ Autoencoders</a>：</p>
                         <span class="chip bg-color">生成模型</span>
                     </a>
                     
+                    <a href="/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">扩散模型</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9A%90%E5%8F%98%E9%87%8F%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">隐变量模型</span>
+                    </a>
+                    
                     <a href="/tags/DDPM/">
                         <span class="chip bg-color">DDPM</span>
                     </a>
                     
-                    <a href="/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
-                        <span class="chip bg-color">扩散模型</span>
+                    <a href="/tags/%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96%E6%8A%80%E5%B7%A7/">
+                        <span class="chip bg-color">重参数化技巧</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%98%E5%88%86%E6%8E%A8%E6%96%AD/">
+                        <span class="chip bg-color">变分推断</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E8%BF%87%E7%A8%8B/">
+                        <span class="chip bg-color">马尔科夫过程</span>
                     </a>
                     
                 </div>
@@ -1453,7 +1477,7 @@ Autoencoders</a>：</p>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">16.2k</span>
+                        class="white-color">43.1k</span>
             
             
             
@@ -1727,7 +1751,7 @@ $(function () {
         <script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
-                preloadRatio: 1,
+                preloadRatio: 3,
                 processImages: null,
             };
         </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
